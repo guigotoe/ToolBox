@@ -1,6 +1,3 @@
-install.packages(c("tidyverse", "GenomicAlignments", "GenomicFeatures",
-                   "genomation", "Gviz", "Biostrings","plotly",
-                   "rtracklayer", "ggbio", "grid","gridExtra"))
 library(tidyverse)
 library(GenomicAlignments)
 library(GenomicFeatures)
@@ -15,7 +12,6 @@ library(gridExtra)
 
 path <- getwd()
 system(paste0('cat ',path,'/data/ypestis/NC_0031* > ',path,'/data/ypestis/Y_pestis.gff3'))
-https://mybinder.org/v2/gh/guigotoe/ToolBox.git/HEAD?urlpath=rstudio
 ## NC_003131.gff3 = pCD1 = 70305
 ## NC_003132.gff3 = pPCP1 = 9612 
 ## NC_003134.gff3 = pMT1 = 96210

@@ -1,0 +1,1 @@
+install.packages(c("tidyverse", "BiocManager","GenomicAlignments", "GenomicFeatures","genomation", "Gviz", "Biostrings","plotly","rtracklayer", "ggbio", "grid","gridExtra"))
