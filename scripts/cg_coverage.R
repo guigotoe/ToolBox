@@ -1,3 +1,6 @@
+install.packages(c("tidyverse", "GenomicAlignments", "GenomicFeatures",
+                   "genomation", "Gviz", "Biostrings","plotly",
+                   "rtracklayer", "ggbio", "grid","gridExtra"))
 library(tidyverse)
 library(GenomicAlignments)
 library(GenomicFeatures)
@@ -10,15 +13,15 @@ library(grid)
 library(plotly)
 library(gridExtra)
 
-path <- '/Users/guillermotorres/Dropbox/Presentations/Courses/2022_tracingDiseases'
-system(paste0('cat ',path,'/data/NC_0031* > ',path,'/data/Y_pestis.gff3'))
-
+path <- getwd()
+system(paste0('cat ',path,'/data/ypestis/NC_0031* > ',path,'/data/ypestis/Y_pestis.gff3'))
+https://mybinder.org/v2/gh/guigotoe/ToolBox.git/HEAD?urlpath=rstudio
 ## NC_003131.gff3 = pCD1 = 70305
 ## NC_003132.gff3 = pPCP1 = 9612 
 ## NC_003134.gff3 = pMT1 = 96210
 ## NC_003143.gff3 = Y_pestis_genome =  4653728 
-ypall <- makeTxDbFromGFF(paste0(path,'/data/Y_pestis.gff3'))
-ypseq <- readDNAStringSet(paste0(path,'/data/Y_pestis_genome.fna'))
+ypall <- makeTxDbFromGFF(paste0(path,'/data/ypestis/Y_pestis.gff3'))
+ypseq <- readDNAStringSet(paste0(path,'/data/ypestis/Y_pestis_genome.fna'))
 names(ypseq)<- lapply(names(ypseq),function(x) x%>%str_split(' ')%>%unlist()%>%.[[1]])%>%unlist()
 isCircular(ypseq) <- c(TRUE,TRUE,TRUE,TRUE)
 genome(ypseq) <- c('Y.pestis','Y.pestis','Y.pestis','Y.pestis')
